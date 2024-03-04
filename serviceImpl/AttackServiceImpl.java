@@ -1,6 +1,6 @@
 package serviceImpl;
 
-import model.PigDto;
+import model.Pig;
 import service.AttackService;
 
 public class AttackServiceImpl implements AttackService {
@@ -12,8 +12,18 @@ public class AttackServiceImpl implements AttackService {
     public static AttackService getInstance(){ return instance;}
 
     @Override
-    public String AttackPig(PigDto pig) {
+    public String AttackPig(Pig pig) {
 
         return "";
+    }
+
+    @Override
+    public String dropItem() {
+        return null;
+    }
+
+    @Override
+    public String resetStats() {
+        return null;
     }
 }

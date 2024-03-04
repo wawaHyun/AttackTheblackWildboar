@@ -21,14 +21,7 @@ public class BlackWildboarView {
         System.out.println("         \"\"\"\"\"\"               \"\"\"\"\"\"");
 
 
-        System.out.println("흑돼지!!");
-        System.out.println("0번 메인으로 돌아가기");
-        while (true){
-            if(sc.next().equals("0")){
-                return;
-            }else {
-                System.out.println("잘못입력되었습니다.");
-            }
-        }
+
+
     }
 }

@@ -1,8 +1,10 @@
 package service;
 
-import model.PigDto;
+import model.Pig;
 
 public interface AttackService {
-    String AttackPig(PigDto pig);
+    String AttackPig(Pig pig);
+    String dropItem();
+    String resetStats();
 
 }

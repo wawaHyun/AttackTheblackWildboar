@@ -1,8 +1,13 @@
 package service;
 
+import model.Player;
+
+import java.util.*;
+
 public interface ContinueService {
-    int jobSelect(int jobSelectNum);
-    String getThePig(String getThePig);
+    Map<String, Player> jobMap();
+    String jobSelectMap(int playerNum);
+    String jobSelectLiSt(Player playerNum);
     String showState();
 
 }

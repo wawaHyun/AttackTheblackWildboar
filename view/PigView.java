@@ -22,9 +22,15 @@ public class PigView {
         //아이템줍기
 
         System.out.println("goodjob! pig is down!\nyami yami yamyami~!\noh!\nSuccessfully leveled up!" +
-                "go back to Ready.");
-
-        ReadyView.readyMain();
+                "go back to Ready. Please input 'ready'.\n");
+        while (true){
+        switch (sc.next()){
+            case "ready" :
+                ReadyView.readyMain();
+                break;
+            default:
+                System.out.printf("sorry! wrong input! Please input 'ready'.\n");
+        }}
 
     }
 }

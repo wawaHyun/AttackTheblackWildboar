@@ -1,28 +1,26 @@
 package view;
 
-import pigController.PigController;
-import service.ContinueService;
-import serviceImpl.ContinueServiceImpl;
+import controller.ReadyController;
 
 import java.util.*;
 
 public class StateView {
     public static void stateMain() {
         Scanner sc = new Scanner(System.in);
-        PigController contller = new PigController();
+        ReadyController contller = new ReadyController();
 
         System.out.println("");
 
-        System.out.println(contller.showState());
+        contller.showState();
 
-        System.out.println("0번 준비하러 돌아가기");
+        System.out.println("0번 ready for pig attack.");
 
         while (sc.nextInt()!=0){
             if(true){
                 ReadyView.readyMain();
                 break;
             }else {
-                System.out.println("잘못입력되었습니다.");
+                System.out.println("");
             }
         }
 
