@@ -1,21 +1,43 @@
-package serviceImpl;
+package ready;
 
 import model.Player;
-import service.ContinueService;
+import view.ReadyView;
 
 import java.util.*;
 
-public class ContinueServiceImpl implements ContinueService {
-    private static ContinueService instance = new ContinueServiceImpl();
+public class ReadyServiceImpl implements ReadyService{
+    private static ReadyService instance = new ReadyServiceImpl();
     List<Player> playerList;
     Map<String, Player> playerMap;
     String jobSelect;
-    private ContinueServiceImpl(){
-        this.playerList = new ArrayList<>();
-        this.playerMap = new HashMap<>();
-    }
-    public static ContinueService getInstance(){ return instance;}
 
+    public ReadyServiceImpl() {
+    }
+
+    public static ReadyService getInstance() {
+        return instance;
+    }
+
+    @Override
+    public String start() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("You are so, so hungry...\n" +
+                "Let's ATTACK PIGGG! yammy yummmmy pig!\n");
+
+        ReadyController cotnroll = new ReadyController();
+
+        System.out.println("Choose your job.");
+        System.out.println("0-warrior, 1-tanker, 2-adventurer");
+        cotnroll.jobMap();
+        cotnroll.jobSelectMap(sc);
+
+        System.out.println("Let's ATTACK PIGGG! yammy yummmmy pig!");
+
+        System.out.println("input 'start'");
+        if (sc.next().equals("start")) ReadyView.readyMain();
+        return "Let's go to ATTACK PIGGG!";
+    }
 
     @Override
     public Map<String, Player> jobMap() {
@@ -96,7 +118,7 @@ public class ContinueServiceImpl implements ContinueService {
                 default:{
                     System.out.println("Please enter again.");}
             }
-    }
+        }
         System.out.println(playerList.toString());
         return "";
     }
@@ -114,8 +136,9 @@ public class ContinueServiceImpl implements ContinueService {
 
         //Map studying
         System.out.println(playerMap.get(jobSelect).getJobName()+" : attack "+playerMap.get(jobSelect).getAttack()+
-                    ", HP "+ playerMap.get(jobSelect).getHealthPont()+", skill "+playerMap.get(jobSelect).getSkillName());
+                ", HP "+ playerMap.get(jobSelect).getHealthPont()+", skill "+playerMap.get(jobSelect).getSkillName());
 
         return showState;
     }
+
 }

@@ -1,6 +1,6 @@
 package view;
 
-import controller.ReadyController;
+import ready.ReadyController;
 
 import java.util.*;
 

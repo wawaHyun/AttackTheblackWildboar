@@ -1,9 +1,7 @@
-package service;
-
-import model.Pig;
+package attack;
 
 public interface AttackService {
-    String AttackPig(Pig pig);
+    String AttackPig();
     String dropItem();
     String resetStats();
 

@@ -1,5 +1,7 @@
 package view;
 
+import attack.AttackController;
+
 import java.util.Scanner;
 
 public class PigView {
@@ -18,7 +20,8 @@ public class PigView {
         System.out.println("Chubby pig has appeared!\n" +
                 "Gulp! Gulp!\n");
 
-        //돼지공격
+        AttackController pigcon = new AttackController();
+        //돼지잡기
         //아이템줍기
 
         System.out.println("goodjob! pig is down!\nyami yami yamyami~!\noh!\nSuccessfully leveled up!" +

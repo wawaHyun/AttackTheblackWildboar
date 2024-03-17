@@ -1,13 +1,13 @@
-package service;
+package ready;
 
 import model.Player;
 
-import java.util.*;
+import java.util.Map;
 
-public interface ContinueService {
+public interface ReadyService {
+    String start();
     Map<String, Player> jobMap();
     String jobSelectMap(int playerNum);
     String jobSelectLiSt(Player playerNum);
     String showState();
-
 }

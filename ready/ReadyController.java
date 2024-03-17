@@ -1,33 +1,35 @@
-package controller;
+package ready;
 
 import model.Player;
-import service.ContinueService;
-import serviceImpl.ContinueServiceImpl;
 
 import java.util.Map;
 import java.util.Scanner;
 
 public class ReadyController {
-    ContinueService contiune;
+    private static ReadyController instance = new ReadyController();
+    ReadyService ready;
 
-    public ReadyController(){
-        this.contiune = ContinueServiceImpl.getInstance();
+    public ReadyController(ReadyService ready) {
+        this.ready = ready;
     }
 
+    public static ReadyController getInstance() {
+        return instance;
+    }
 
     public Map<String, Player> jobMap() {
-        return contiune.jobMap();
+        return ready.jobMap();
     }
 
     public String jobSelectMap(Scanner sc) {
-        return contiune.jobSelectMap(sc.nextInt());
+        return ready.jobSelectMap(sc.nextInt());
     }
 
     public String jobSelectLiSt(Scanner sc) {
         int scc = sc.nextInt();
         switch (scc){
             case 0 :
-                contiune.jobSelectLiSt(Player.builder()
+                ready.jobSelectLiSt(Player.builder()
                         .jobSelectNum(scc)
                         .jobName("warrior")
                         .attack(70)
@@ -38,7 +40,7 @@ public class ReadyController {
                         .build());
                 break;
             case 1 :
-            contiune.jobSelectLiSt(Player.builder()
+                ready.jobSelectLiSt(Player.builder()
                         .jobSelectNum(scc)
                         .jobName("tanker")
                         .attack(30)
@@ -49,7 +51,7 @@ public class ReadyController {
                         .build());
                 break;
             case 2 :
-            contiune.jobSelectLiSt(Player.builder()
+                ready.jobSelectLiSt(Player.builder()
                         .jobSelectNum(scc)
                         .jobName("adventurer")
                         .attack(50)
@@ -64,13 +66,16 @@ public class ReadyController {
     }
 
     public String showState() {
-        return contiune.showState();
+        return ready.showState();
     }
     public String AttackPig() {
         int pig = 50;
         return "";
     }
 
+    public String start() {
+        return ready.start();
+    }
 }
 
 
