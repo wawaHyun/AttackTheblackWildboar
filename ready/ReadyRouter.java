@@ -6,7 +6,9 @@ import java.util.stream.Stream;
 
 public enum ReadyRouter {
     Start("start",i->{
-        ReadyController.getInstance().start();
+        return true;
+    }),
+    JobSelect("job",i->{ //job select
         return true;
     }),
     Ready("ready",i->{
@@ -29,6 +31,10 @@ public enum ReadyRouter {
         this.predi = predi;
     }
     public static boolean getReayRouter(Scanner sc){
+        ReadyController ready = ReadyController.getInstance();
+        ready.start();
+        ready.jobSelect(sc);
+
         String select = sc.next();
         return Stream.of(ReadyRouter.values())
                 .filter(i->i.name.equals(select))

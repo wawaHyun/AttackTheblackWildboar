@@ -3,14 +3,14 @@ package ready;
 import model.Player;
 
 public enum PlayerJob {
-    Warrior("warrior", 0,"warrior",
+    Warrior("warrior", 1,"warrior",
             70,30,"Strong Attack",
             0, 0),
 
-    Tanker("tanker",1,"tanker",
+    Tanker("tanker",2,"tanker",
             30,70,"Recover HP",
             0,0),
-    Adventurer("adventurer",2,"adventurer",
+    Adventurer("adventurer",3,"adventurer",
             50,50,"Attack Avoid",
             0,0)
     ;

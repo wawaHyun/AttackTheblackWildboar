@@ -7,11 +7,11 @@ import java.util.*;
 public class StateView {
     public static void stateMain() {
         Scanner sc = new Scanner(System.in);
-        ReadyController contller = new ReadyController();
+//        ReadyController contller = new ReadyController();
 
         System.out.println("");
 
-        contller.showState();
+//        contller.showState();
 
         System.out.println("0번 ready for pig attack.");
 

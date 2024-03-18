@@ -1,16 +1,18 @@
 package ready;
 
+import lombok.Getter;
 import model.Player;
 
 import java.util.Map;
 import java.util.Scanner;
 
 public class ReadyController {
+    @Getter
     private static ReadyController instance = new ReadyController();
-    ReadyService ready;
+    private final ReadyService ready;
 
-    public ReadyController(ReadyService ready) {
-        this.ready = ready;
+    public ReadyController() {
+        this.ready = ReadyServiceImpl.getInstance();
     }
 
     public static ReadyController getInstance() {
@@ -75,6 +77,14 @@ public class ReadyController {
 
     public String start() {
         return ready.start();
+    }
+
+    public String jobSelect(Scanner sc) {
+        System.out.println("Please Select your job.\n" +
+                "1-warrior\n" +
+                "2-tanker\n" +
+                "3-adventurer\n");
+        return ready.jobSelect(sc);
     }
 }
 
