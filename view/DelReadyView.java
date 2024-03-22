@@ -1,10 +1,8 @@
 package view;
 
-import com.sun.tools.javac.Main;
-
 import java.util.Scanner;
 
-public class ReadyView {
+public class DelReadyView {
     public static void readyMain() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Are you ready to fight the PIG?");
@@ -15,7 +13,7 @@ public class ReadyView {
                 return;
             }
             case "1" :{
-                StateView.stateMain();
+                DelStateView.stateMain();
                 break;
             }
             case "2" : {

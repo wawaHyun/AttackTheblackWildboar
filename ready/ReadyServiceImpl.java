@@ -1,15 +1,13 @@
 package ready;
 
 import model.Player;
-import view.ReadyView;
+import view.DelReadyView;
 
 import java.util.*;
 
 public class ReadyServiceImpl implements ReadyService{
     private static ReadyService instance = new ReadyServiceImpl();
-    List<Player> playerList;
     Map<String, Player> playerMap;
-    String jobSelect;
 
     public ReadyServiceImpl() {
     }
@@ -20,109 +18,29 @@ public class ReadyServiceImpl implements ReadyService{
 
     @Override
     public String start() {
-        Scanner sc = new Scanner(System.in);
-
         System.out.println("You are so, so hungry...\n" +
                 "Let's ATTACK PIGGG! yammy yummmmy pig!\n");
-
-        ReadyController cotnroll = new ReadyController();
-
-        System.out.println("Choose your job.");
-        System.out.println("0-warrior, 1-tanker, 2-adventurer");
-        cotnroll.jobMap();
-        cotnroll.jobSelectMap(sc);
-
-        System.out.println("Let's ATTACK PIGGG! yammy yummmmy pig!");
-
-        System.out.println("input 'start'");
-        if (sc.next().equals("start")) ReadyView.readyMain();
         return "Let's go to ATTACK PIGGG!";
     }
 
     @Override
-    public Map<String, Player> jobMap() {
-        playerMap.put("0",Player.builder()
-                .jobSelectNum(0)
-                .jobName("warrior")
-                .attack(70)
-                .healthPont(30)
-                .skillName("Strong Attack")
-                .skillValue(0)
-                .guiltyConscienceValue(0)
-                .build());
-        playerMap.put("1",Player.builder()
-                .jobSelectNum(1)
-                .jobName("tanker")
-                .attack(30)
-                .healthPont(70)
-                .skillName("Recover HP")
-                .skillValue(0)
-                .guiltyConscienceValue(0)
-                .build());
-        playerMap.put("2",Player.builder()
-                .jobSelectNum(2)
-                .jobName("adventurer")
-                .attack(50)
-                .healthPont(50)
-                .skillName("Attack Avoid")
-                .skillValue(0)
-                .guiltyConscienceValue(0)
-                .build());
-        return playerMap;
-    }
-
-    @Override
-    public String jobSelectMap(int playerNum) {
+    public String jobSelect(int playerNum) {
+        String result;
         switch (playerNum){
+            case 0 :{
+                result =  "you start warrior.";
+                break;}
             case 1 :{
-                System.out.println("you start tanker.");
+                result ="you start tanker.";
                 break;}
             case 2 : {
-                System.out.println("you start adventurer.");
+                result ="you start adventurer.";
                 break;}
             default:{
-                System.out.println("Please enter again.");}
+                result ="Please enter again.";}
         }
-        jobSelect = String.valueOf(playerNum);
-        return null;
+        return result;
     }
-
-    @Override
-    public String jobSelectLiSt(Player playerNum) {
-        System.out.println("0 : "+playerList.get(0));
-
-        System.out.println(playerList.toString());
-        if(playerNum.getJobSelectNum() >=3){
-            System.out.println("Getting the numbers wrong.\nPlease reStart Game.");
-            System.exit(0);
-        }else {
-            switch (playerNum.getJobSelectNum()){
-                case 0 : {
-                    System.out.println("you start warrior.");
-                    playerList.add(Player.builder()
-                            .jobSelectNum(0)
-                            .jobName("warrior")
-                            .attack(70)
-                            .healthPont(30)
-                            .skillName("Strong Attack")
-                            .skillValue(0)
-                            .guiltyConscienceValue(0)
-                            .build());
-                    break;}
-                case 1 :{
-                    System.out.println("you start tanker.");
-                    break;}
-                case 2 : {
-                    System.out.println("you start adventurer.");
-                    break;}
-                default:{
-                    System.out.println("Please enter again.");}
-            }
-        }
-        System.out.println(playerList.toString());
-        return "";
-    }
-
 
     @Override
     public String showState() {
@@ -135,10 +53,10 @@ public class ReadyServiceImpl implements ReadyService{
 //                    ", HP "+ playerList.get(4)+", skill "+playerList.get(5));
 
         //Map studying
-        System.out.println(playerMap.get(jobSelect).getJobName()+" : attack "+playerMap.get(jobSelect).getAttack()+
-                ", HP "+ playerMap.get(jobSelect).getHealthPont()+", skill "+playerMap.get(jobSelect).getSkillName());
+//        System.out.println(playerMap.get(jobSelect).getJobName()+" : attack "+playerMap.get(jobSelect).getAttack()+
+//                ", HP "+ playerMap.get(jobSelect).getHealthPont()+", skill "+playerMap.get(jobSelect).getSkillName());
 
-        return showState;
+        return "showState";
     }
 
 }

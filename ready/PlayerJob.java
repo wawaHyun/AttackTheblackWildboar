@@ -3,30 +3,29 @@ package ready;
 import model.Player;
 
 public enum PlayerJob {
-    Warrior("warrior", 0,"warrior",
-            70,30,"Strong Attack",
-            0, 0),
+    Warrior("warrior","warrior",
+            "70","30","Strong Attack",
+            "0", "0"),
 
-    Tanker("tanker",1,"tanker",
-            30,70,"Recover HP",
-            0,0),
-    Adventurer("adventurer",2,"adventurer",
-            50,50,"Attack Avoid",
-            0,0)
+    Tanker("tanker","tanker",
+            "30","70","Recover HP",
+            "0","0"),
+    Adventurer("adventurer","adventurer",
+            "50","50","Attack Avoid",
+            "0","0")
     ;
 
     private final String name;
-    private final int jobNum;
     private final String jobName;
-    private final int palyerAttack;
-    private final int healthPont;
+    private final String palyerAttack;
+    private final String healthPont;
     private final String skillName;
-    private final int skillValue;
-    private final int guiltyConscienceValue;
+    private final String skillValue;
+    private final String guiltyConscienceValue;
 
-    PlayerJob(String name,int jobNum, String jobName, int palyerAttack, int healthPont, String skillName, int skillValue, int guiltyConscienceValue) {
+    PlayerJob(String name,String jobName, String palyerAttack, String healthPont,
+              String skillName, String skillValue, String guiltyConscienceValue) {
         this.name = name;
-        this.jobNum = jobNum;
         this.jobName = jobName;
         this.palyerAttack = palyerAttack;
         this.healthPont = healthPont;

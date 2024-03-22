@@ -12,16 +12,16 @@ public class AttackServiceImpl implements AttackService{
 
     @Override
     public String AttackPig() {
-        return null;
+        return "AttackPig";
     }
 
     @Override
     public String dropItem() {
-        return null;
+        return "dropItem";
     }
 
     @Override
     public String resetStats() {
-        return null;
+        return "resetStats";
     }
 }

@@ -1,10 +1,21 @@
 package attack;
 
+import ready.ReadyRouter;
+
 import java.util.Scanner;
 import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 public enum AttackRouter {
-    Pig("Pig",i->{
+    Pig("1",i->{
+        System.out.println("wrong input.");
+        return true;
+    }),
+    Wpig("Wpig",i->{
+        System.out.println("wrong input.");
+        return true;
+    }),
+    WBpig("WBpig",i->{
         System.out.println("wrong input.");
         return true;
     }),
@@ -12,8 +23,8 @@ public enum AttackRouter {
         System.out.println("wrong input.");
         return true;
     }),
-    Exit("exit",i->{
-        System.out.println("back to ready.");
+    Exit("0",i->{
+        ReadyRouter.getReayRouter(i);
         return false;
     })
     ;
@@ -25,5 +36,14 @@ public enum AttackRouter {
     AttackRouter(String name, Predicate<Scanner> predi) {
         this.name = name;
         this.predi = predi;
+    }
+
+    public static boolean getAttackRouter(Scanner sc){
+        System.out.println("0-back to ready, 1-get the pig");
+        String selcet = sc.next();
+
+        return Stream.of(AttackRouter.values())
+                .filter(i->i.name.equals(selcet))
+                .findAny().orElse(Wrong).predi.test(sc);
     }
 }

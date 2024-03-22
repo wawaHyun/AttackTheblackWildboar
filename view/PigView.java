@@ -29,7 +29,7 @@ public class PigView {
         while (true){
         switch (sc.next()){
             case "ready" :
-                ReadyView.readyMain();
+                DelReadyView.readyMain();
                 break;
             default:
                 System.out.printf("sorry! wrong input! Please input 'ready'.\n");

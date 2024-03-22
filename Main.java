@@ -1,3 +1,4 @@
+import ready.ReadyController;
 import ready.ReadyRouter;
 
 import java.util.*;
@@ -5,8 +6,8 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        while (ReadyRouter.getReayRouter(sc)){}
-
+        ReadyController.getInstance().start();
+        while (ReadyRouter.getReayRouter(sc));
 
     }
 }

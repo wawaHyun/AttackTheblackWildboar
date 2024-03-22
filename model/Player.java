@@ -7,17 +7,17 @@ import lombok.*;
 @ToString(exclude = {"jobSelectNum"})
 
 public class Player {
-    private int jobSelectNum;
+    private Long jobid;
     private String jobName;
-    private int attack;
-    private int healthPont;
+    private String attack;
+    private String healthPont;
     private String skillName;
-    private int skillValue;
-    private int guiltyConscienceValue;
+    private String skillValue;
+    private String guiltyConscienceValue;
     @Builder(builderClassName = "builder")
-    public Player(int jobSelectNum, String jobName, int attack, int healthPont, String skillName, int skillValue,
-                  int guiltyConscienceValue){
-        this.jobSelectNum = jobSelectNum;
+    public Player(Long jobid, String jobName, String attack, String healthPont, String skillName, String skillValue,
+                  String guiltyConscienceValue){
+        this.jobid = jobid;
         this.jobName = jobName;
         this.attack = attack;
         this.healthPont = healthPont;
