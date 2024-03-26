@@ -4,7 +4,7 @@ import lombok.*;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@ToString(exclude = {"jobSelectNum"})
+@ToString(exclude = {"jobid"})
 
 public class Player {
     private Long jobid;
