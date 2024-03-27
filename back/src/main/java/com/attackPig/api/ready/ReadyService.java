@@ -1,12 +1,7 @@
-package ready;
-
-import model.Player;
-
-import java.util.Map;
+package com.attackPig.api.ready;
 
 public interface ReadyService {
-    String start();
-
+    
     String jobSelect(int playerNum);
 
     String showState();

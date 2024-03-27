@@ -5,11 +5,11 @@ import lombok.*;
 import java.util.List;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@ToString(exclude = {"id"})
 @Getter
 @Setter
-@ToString(exclude = {"id"})
 @Entity(name="users")
-public class user {
+public class User {
     @Id
     @Column(name="id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,12 +21,12 @@ public class user {
     private String hp;
     private String luck; //random up
 
-    @OneToMany(mappedBy = "skils")
-    private List<skil> skil;   
+    @OneToMany(mappedBy = "user")
+    private List<Skil> skil;   
 
 
     @Builder(builderClassName = "builder")
-    public user(Long id, String username, String job, String lv, String ap, String hp,
+    public User(Long id, String username, String job, String lv, String ap, String hp,
                   String luck){
         this.id = id;
         this.username = username;

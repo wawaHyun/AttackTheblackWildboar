@@ -6,16 +6,20 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Setter;
+import lombok.ToString;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
-@Entity(name="skils")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Setter
-public class skil {
+@ToString(exclude = {"id"})
+@Entity(name="skils")
+public class Skil {
     @Id
     @Column(name="sp_id", nullable = false)
     @GeneratedValue(strategy =GenerationType.IDENTITY)
@@ -26,8 +30,12 @@ public class skil {
     private String sp;  //skil ap+20
     private String spLuk; //발동확률 (0~)10 
 
+    @ManyToOne
+    @JoinColumn(name="id",referencedColumnName = "id")
+    private User user;
+
     @Builder(buildMethodName = "builder")
-    public skil(Long id, String spName,String spScp,String sp,String spLuk){
+    public Skil(Long id, String spName,String spScp,String sp,String spLuk){
         this.id = id;
         this.spName = spName;
         this.spScp = spScp;
