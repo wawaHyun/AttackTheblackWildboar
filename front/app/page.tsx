@@ -5,30 +5,30 @@ import { useState } from "react";
 
 const SERVER = 'http://localhost:8080'
 export default function Home() {
-  // const [username, setUsername] = useState('')
-  // const [password, setPassword] = useState('')
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
 
-  // const handleUsername = (e: any) => {
-  //   setUsername(e.target.value)
-  // }
-  // const handlePassword = (e: any) => {
-  //   setPassword(e.target.value)
-  // }
+  const handleUsername = (e: any) => {
+    setUsername(e.target.value)
+  }
+  const handlePassword = (e: any) => {
+    setPassword(e.target.value)
+  }
 
-  // const handleSumit = () =>{
-  //   const url = `${SERVER}/api/login`
-  //   const data = {username,password}
-  //   const config = {
-  //     headers: {
-  //         "Cache-Control": "no-cache",
-  //         "Content-Type": "application/json",
-  //         Authorization: `Bearer blah ~`,
-  //         "Access-Control-Allow-Origin": "*",
-  //     }
-  // }
-  //   axios.post(url, data, config)
-  //   .then(res=>res.data)
-  // }
+  const handleSumit = () =>{
+    const url = `${SERVER}/api/login`
+    const data = {username,password}
+    const config = {
+      headers: {
+          "Cache-Control": "no-cache",
+          "Content-Type": "application/json",
+          Authorization: `Bearer blah ~`,
+          "Access-Control-Allow-Origin": "*",
+      }
+  }
+    axios.post(url, data, config)
+    .then(res=>res.data)
+  }
 
   const style = {
     backgroundColor: 'black',
@@ -48,7 +48,7 @@ export default function Home() {
       <div>
         <label htmlFor="email" className="block text-sm font-medium leading-6 text-balance">ID :</label>
         <div className="mt-2">
-          <input id="username" name="username" type="text" autoComplete="email" required className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-cyan-600 shadow-sm ring-1 ring-inset ring-red-500 focus:ring-2 focus:ring-inset focus:ring-balck sm:text-sm sm:leading-6"/>
+          <input id="username" name="username" type="text" onChange={handleUsername} autoComplete="email" required className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-cyan-600 shadow-sm ring-1 ring-inset ring-red-500 focus:ring-2 focus:ring-inset focus:ring-balck sm:text-sm sm:leading-6"/>
         </div>
       </div>
 
@@ -60,7 +60,7 @@ export default function Home() {
           </div>
         </div>
         <div className="mt-2">
-          <input id="password" name="password" type="password"  autoComplete="current-password" required className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-red-500 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6"/>
+          <input id="password" name="password" type="password" onChange={handlePassword} autoComplete="current-password" required className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-red-500 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6"/>
         </div>
       </div>
 
