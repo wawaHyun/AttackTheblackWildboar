@@ -1,9 +1,12 @@
+'use client'
+
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { useState } from "react";
+import { API } from "./atoms/enums/API";
+import AxiosConfing from "./organisms/confings/axios-confings";
 
-const SERVER = 'http://localhost:8080'
 export default function Home() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -16,17 +19,7 @@ export default function Home() {
   }
 
   const handleSumit = () =>{
-    const url = `${SERVER}/api/login`
-    const data = {username,password}
-    const config = {
-      headers: {
-          "Cache-Control": "no-cache",
-          "Content-Type": "application/json",
-          Authorization: `Bearer blah ~`,
-          "Access-Control-Allow-Origin": "*",
-      }
-  }
-    axios.post(url, data, config)
+    axios.post(`${API.SERVER}/api/login`, {username,password}, AxiosConfing())
     .then(res=>res.data)
   }
 
@@ -65,7 +58,8 @@ export default function Home() {
       </div>
 
       <div>
-        <button type="submit" className="flex w-full justify-center rounded-md bg-red-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-500">Sign in</button>
+        <button type="submit" onClick={handleSumit}
+        className="flex w-full justify-center rounded-md bg-red-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-500">Sign in</button>
       </div>
     </form>
 

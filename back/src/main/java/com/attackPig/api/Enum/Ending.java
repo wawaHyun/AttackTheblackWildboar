@@ -1,4 +1,4 @@
-package com.attackPig.api.model;
+package com.attackPig.api.Enum;
 
 import lombok.Getter;
 

@@ -31,15 +31,17 @@ public class Skil {
     private String spLuk; //발동확률 (0~)10 
 
     @ManyToOne
-    @JoinColumn(name="id",referencedColumnName = "id")
+    @JoinColumn(name="user_id",referencedColumnName = "user_id")
     private User user;
 
     @Builder(buildMethodName = "builder")
-    public Skil(Long id, String spName,String spScp,String sp,String spLuk){
+    public Skil(Long id, String spName,String spScp,String sp,String spLuk,
+    User user){
         this.id = id;
         this.spName = spName;
         this.spScp = spScp;
         this.sp = sp;
         this.spLuk = spLuk;
+        this.user = user;
     }
 }
